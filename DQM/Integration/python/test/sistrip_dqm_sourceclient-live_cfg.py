@@ -113,7 +113,7 @@ process.load("Configuration.StandardSequences.RawToDigi_Data_cff")
 #process.siStripDigis.UnpackBadChannels = cms.bool(True)
 
 ## Cosmic Track Reconstruction
-if (process.runType.getRunType() == process.runType.cosmic_run):
+if (process.runType.getRunType() == process.runType.cosmic_run or process.runType.getRunType() == process.runType.cosmic_run_stage1):
     process.load("RecoTracker.Configuration.RecoTrackerP5_cff")
     process.load("Configuration.StandardSequences.ReconstructionCosmics_cff")
 else:
@@ -228,7 +228,7 @@ process.RecoForDQM_LocalReco     = cms.Sequence(process.siPixelDigis*process.siS
 process.SiStripMonitorDigi.TotalNumberOfDigisFailure.subdetswitchon = cms.bool(False)
 
 ### COSMIC RUN SETTING
-if (process.runType.getRunType() == process.runType.cosmic_run):
+if (process.runType.getRunType() == process.runType.cosmic_run or process.runType.getRunType() == process.runType.cosmic_run_stage1):
     # event selection for cosmic data
     process.source.SelectEvents = cms.untracked.vstring('HLT*SingleMu*','HLT_L1*')
     # Reference run for cosmic
@@ -288,7 +288,7 @@ if (process.runType.getRunType() == process.runType.cosmic_run):
 
 #else :
 ### pp COLLISION SETTING
-if (process.runType.getRunType() == process.runType.pp_run):
+if (process.runType.getRunType() == process.runType.pp_run or process.runType.getRunType() == process.runType.pp_run_stage1):
     #event selection for pp collisions
     process.source.SelectEvents = cms.untracked.vstring(
         'HLT_L1*',

@@ -60,7 +60,7 @@ print "Running with run type = ", process.runType.getRunType()
 #### pp run settings 
 #----------------------------
 
-if (process.runType.getRunType() == process.runType.pp_run):
+if (process.runType.getRunType() == process.runType.pp_run or process.runType.getRunType() == process.runType.pp_run_stage1):
     process.DQMStore.referenceFileName = '/dqmdata/dqm/reference/dt_reference_pp.root'
 
 
@@ -68,7 +68,7 @@ if (process.runType.getRunType() == process.runType.pp_run):
 #### cosmic run settings 
 #----------------------------
 
-if (process.runType.getRunType() == process.runType.cosmic_run):
+if (process.runType.getRunType() == process.runType.cosmic_run or process.runType.getRunType() == process.runType.cosmic_run_stage1):
     process.DQMStore.referenceFileName = '/dqmdata/dqm/reference/dt_reference_cosmic.root'
 
 

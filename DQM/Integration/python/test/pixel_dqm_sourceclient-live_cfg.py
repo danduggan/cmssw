@@ -40,7 +40,7 @@ process.DQMStore.referenceFileName = '/dqmdata/dqm/reference/pixel_reference_pp.
 if (process.runType.getRunType() == process.runType.hi_run):
     process.DQMStore.referenceFileName = '/dqmdata/dqm/reference/pixel_reference_hi.root'
 
-if (process.runType.getRunType() == process.runType.cosmic_run):
+if (process.runType.getRunType() == process.runType.cosmic_run or process.runType.getRunType() == process.runType.cosmic_run_stage1):
     process.DQMStore.referenceFileName = '/dqmdata/dqm/reference/pixel_reference_cosmic.root'
     process.source.SelectEvents = cms.untracked.vstring('HLT*SingleMu*')
 
